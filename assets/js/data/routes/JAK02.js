@@ -4,6 +4,8 @@ export const routeJAK02 = {
             mode: "mikro",
             name: "Kampung Melayu - Duren Sawit",
             badgeColor: "#00b0ec",
+            geoJsonLine:"Transjakarta - JAK.02 Kampung Melayu - Duren Sawit.geojson",
+            geoJsonStops:"Transjakarta - JAK.02 Kampung Melayu - Duren Sawit - Stops.geojson",
             details: {
                 tarif: "Rp 0 (Wajib Kartu)",
                 headway: "4-7 Menit",
