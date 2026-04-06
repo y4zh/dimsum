@@ -106,4 +106,4 @@ export const appLocations = [
         { name: "Jln. Kejaksaan Pondok Bambu", type: "busstop_area", coords: [106.89955922802385, -6.238066506244174], desc: "JAK 02 (Kampung Melayu)" },
         { name: "Sbr. Pansoshan Anak Putra Utama I", type: "busstop_area", coords: [106.91836641050227, -6.236969063707152], desc: "JAK 85 (Bintara)" },
         { name: "Sbr. Puri Swadaya", type: "busstop_area", coords: [106.91959754443457,-6.237111712515233], desc: "JAK 85 (Bintara)" },
-    ]
+    ];
