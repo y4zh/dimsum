@@ -1,5 +1,4 @@
-window.appData = {
-    locations: [
+export const appLocations = [
         { name: "MAN 9 Jakarta", type: "school", coords: [106.910491, -6.241088], desc: "Jl. Hj Dogol No 54, Pondok Bambu" },
         { name: "Stasiun Buaran", type: "train", coords: [106.9232049366804, -6.215499349296717], desc: "C (Lin Cikarang)" },
         { name: "Simpang Buaran", type: "brt", coords: [106.9243316143217, -6.2159234027650445], desc: "11 (Kampung Melayu)" },
