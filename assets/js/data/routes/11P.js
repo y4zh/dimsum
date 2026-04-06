@@ -5,6 +5,8 @@ export const route11P = {
             subtype: "rusun",
             name: "Rusun Pondok Bambu - Walikota Jakarta Timur",
             badgeColor: "#B2A5A3",
+            geoJsonLine: "Transjakarta - 11P Rusun Pondok Bambu - Walikota Jakarta Timur.geojson",
+            geoJsonStops: "Transjakarta - 11P Rusun Pondok Bambu - Walikota Jakarta Timur - Stops.geojson",
             details: {
                 tarif: "Rp 0 (Wajib Kartu)",
                 ops: "05.00 - 21.00",
