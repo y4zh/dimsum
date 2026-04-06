@@ -1,4 +1,4 @@
- {
+export const routeKRLC = {
             id: "KRL-C",
             code: "C",
             mode: "krl",
