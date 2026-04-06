@@ -5,6 +5,8 @@ export const routeLRTJB = {
             subtype: "lrt",
             name: "Dukuh Atas - Jati Mulya",
             badgeColor: "#006838",
+            geoJsonLine: "LRT BK line.geojson",
+            geoJsonStops: "LRT BK stops.geojson",
             details: {
                 tarif: "Rp 5.000 - Rp 20.000",
                 ops: "05.12 - 23.45",
