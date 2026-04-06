@@ -1,4 +1,4 @@
-{
+export const routeJAK85 = {
             id: "JAK85",
             code: "JAK 85",
             mode: "mikro",
