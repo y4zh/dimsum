@@ -1,4 +1,4 @@
-{
+export const routeLRTJB = {
             id: "LRT-BK",
             code: "BK",
             mode: "lrt",
