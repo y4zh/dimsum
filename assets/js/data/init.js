@@ -1,5 +1,5 @@
 import { appLocations } from './location.js';
-import { routeColors, appGuides } from './config.js';
+import { routeColors } from './config.js';
 import { route11 } from './routes/11.js';
 import { route11P } from './routes/11P.js';
 import { route11Q } from './routes/11Q.js';
@@ -24,8 +24,7 @@ export const appData = {
         routeJAK85,
         routeKRLC,
         routeLRTJB
-    ],
-    guides: appGuides
+    ]
 };
 
 window.appData = appData;
