@@ -4,6 +4,8 @@ export const route11Q = {
             mode: "nbrt",
             name: "Pulo Gebang - Kampung Melayu via BKT",
             badgeColor: "#10c0ff",
+            geoJsonLine: "Transjakarta - 11Q Kampung Melayu - Pulo Gebang via BKT.geojson",
+            geoJsonStops: "Transjakarta - 11Q Kampung Melayu - Pulo Gebang via BKT - Stops.geojson",
             details: {
                 tarif: "Rp 3.500",
                 tarifNote: "Rp 2.000 (05.00 - 07.00)",
