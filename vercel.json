@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/rute/:match*", "destination": "/route-detail.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
