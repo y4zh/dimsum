@@ -1,4 +1,4 @@
-{
+export const route7P = {
             id: "7P",
             code: "7P",
             mode: "nbrt",
