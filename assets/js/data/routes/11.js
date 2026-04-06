@@ -4,6 +4,9 @@ export const route11 = {
             mode: "brt",
             name: "Pulo Gebang - Kampung Melayu",
             badgeColor: "#2F4FA2",
+            geoJsonLine: "Transjakarta - 11 Pulo Gebang - Kampung Melayu.geojson",
+            geoJsonStops: "Transjakarta - 11 Pulo Gebang - Kampung Melayu - Stops.geojson",
+            defaultIsHalteStop: true,
             details: {
                 tarif: "Rp 3.500",
                 tarifNote: "Rp 2.000 (05.00 - 07.00)",
