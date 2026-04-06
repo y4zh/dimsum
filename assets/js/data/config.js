@@ -1,12 +1,12 @@
-window.routeColors = {
-    // Mikrotrans
+export const routeColors = {
+    // warna mikrotraaaaaaaaaaaaaaaaaaaaaaaaaaaaans
     "JAK": "#00b0ec",
 
-    // N-BRT / Feeder
+    // Non bierti + rusun 
     "4F": "#b900e2",
     "7P": "#911d3c",
     "11Q": "#10c0ff",
-    "11P": "#B2A5A3", //start rute rusun sampe 4E
+    "11P": "#B2A5A3", // <--start rute rusun sampe 4E
     "2F": "#B2A5A3", 
     "10B": "#B2A5A3", 
     "11C": "#B2A5A3", 
@@ -15,7 +15,7 @@ window.routeColors = {
     "11B": "#B2A5A3", 
     "4E": "#B2A5A3",
 
-    // BRT Transjakarta
+    // rute semi brt tije, ada nbrt jg sih.
     "1": "#d02127",
     "1B": "#2AA8A4",
     "4": "#502d5f",
@@ -56,7 +56,7 @@ window.routeColors = {
     "2B": "#266e9a",
     "TWM-K1": "#2F4FA2",
 
-    // KRL Train Lines
+    // warna rute sepoor
     "A | Basoetta": "#262262",      // Lin Bandara Soetta
     "B | Bogor": "#ec2329",       // Lin Bogor/Nambo
     "C | Cikarang": "#26baed",       // Lin Cikarang
@@ -69,5 +69,5 @@ window.routeColors = {
     "KRL": "#26baed",     // KRL
     "LW | Walahar" : "#b6b7b7",
     "LJ | Jatiluhur" : "#404040",
-    "Whoosh": "#7B0D1E"
-}
+    "Whoosh": "#7B0D1E" // masih salah warnanya, ntar deh 
+};
