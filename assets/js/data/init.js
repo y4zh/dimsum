@@ -27,3 +27,5 @@ export const appData = {
     ],
     guides: appGuides
 };
+
+window.appData = appData;
