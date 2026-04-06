@@ -4,6 +4,8 @@ export const route4F = {
             mode: "nbrt",
             name: "Pinang Ranti - Pulo Gadung",
             badgeColor: "#b900e2",
+            geoJsonLine: "Transjakarta - 4F Pinang Ranti - Pulo Gadung.geojson",
+            geoJsonStops: "Transjakarta - 4F Pinang Ranti - Pulo Gadung - Stops.geojson",
             details: {
                 tarif: "Rp 3.500",
                 tarifNote: "Rp 2.000 (05.00 - 07.00)",
