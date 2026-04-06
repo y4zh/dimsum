@@ -1,4 +1,4 @@
-        {
+export const route4F = {
             id: "4F",
             code: "4F",
             mode: "nbrt",
