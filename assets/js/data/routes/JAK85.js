@@ -4,6 +4,8 @@ export const routeJAK85 = {
             mode: "mikro",
             name: "Bintara - Cipinang Indah",
             badgeColor: "#00b0ec",
+            geoJsonLine: "Transjakarta - JAK.85 Bintara - Cipinang Indah.geojson",
+            geoJsonStops: "Transjakarta - JAK.85 Bintara - Cipinang Indah - Stops.geojson",
             details: {
                 tarif: "Rp 0 (Wajib Kartu)",
                 headway: "3-7 Menit",
