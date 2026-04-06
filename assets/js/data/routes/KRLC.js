@@ -5,6 +5,8 @@ export const routeKRLC = {
             subtype: "krl",
             name: "Cikarang - Kampung Bandan",
             badgeColor: "#26baed",
+            geoJsonLine: "Cikarang Loop Line - Line.geojson",
+            geoJsonStops: "Cikarang Loop Line - Stops.geojson",
             details: {
                 tarif: "Rp 3.000 - Rp 13.000",
                 ops: "04.00 - 24.00",
