@@ -1,4 +1,4 @@
-{
+export const route11P = {
             id: "11P",
             code: "11P",
             mode: "mikro",
