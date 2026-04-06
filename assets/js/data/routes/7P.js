@@ -4,6 +4,8 @@ export const route7P = {
             mode: "nbrt",
             name: "Pondok Kelapa - Cawang Cililitan",
             badgeColor: "#911d3c",
+            geoJsonLine: "Transjakarta - 7P Pondok Kelapa - Cawang Cililitan.geojson",
+            geoJsonStops: "Transjakarta - 7P Pondok Kelapa - Cawang Cililitan - Stops.geojson",
             details: {
                 tarif: "Rp 3.500",
                 tarifNote: "Rp 2.000 (05.00 - 07.00)",
