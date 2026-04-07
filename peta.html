@@ -54,6 +54,25 @@
         <div id="map-container" class="absolute inset-0 w-full h-full bg-gray-100 z-0"></div>
         <div class="absolute bottom-8 left-4 right-4 z-20 pointer-events-none flex flex-col gap-4">
             
+            <div id="map-legend-navbar" class="bg-white/95 backdrop-blur-md px-5 py-3 rounded-full shadow-lg flex gap-4 items-center overflow-x-auto no-scrollbar pointer-events-auto border border-gray-100 mx-auto w-max max-w-full">
+                <div class="legend-item flex items-center gap-2 cursor-pointer transition-all duration-200" data-filter="school" onclick="window.filterMap('school')">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#0072bc]"></span>
+                    <span class="text-xs font-bold text-gray-700 whitespace-nowrap font-sans">Sekolah</span>
+                </div>
+                <div class="legend-item flex items-center gap-2 cursor-pointer transition-all duration-200" data-filter="transit" onclick="window.filterMap('transit')">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#FF5733]"></span>
+                    <span class="text-xs font-bold text-gray-700 whitespace-nowrap font-sans">Transit</span>
+                </div>
+                <div class="legend-item flex items-center gap-2 cursor-pointer transition-all duration-200" data-filter="busstop" onclick="window.filterMap('busstop')">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#22c55e]"></span>
+                    <span class="text-xs font-bold text-gray-700 whitespace-nowrap font-sans">Bus Stop Terdekat</span>
+                </div>
+                <div class="legend-item flex items-center gap-2 cursor-pointer transition-all duration-200" data-filter="busstop_area" onclick="window.filterMap('busstop_area')">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#4b5563]"></span>
+                    <span class="text-xs font-bold text-gray-700 whitespace-nowrap font-sans">Bus Stop Sekitar</span>
+                </div>
+            </div>
+            
             <div class="max-w-4xl mx-auto bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl p-6 border border-white/50 pointer-events-auto w-full">
                 <div class="flex items-center justify-between mb-4">
                     <h2 class="text-xs font-bold text-gray-500 uppercase tracking-widest">Pilih Jenis Transportasi</h2>
@@ -68,24 +87,24 @@
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
                     <button onclick="window.location.href='index.html?mode=brt'"
-                        class="category-btn group bg-white rounded-xl p-4 shadow-sm border-2 border-transparent hover:border-primary/10 transition-all duration-300 flex flex-col items-center justify-center h-24 md:h-28">
-                        <img src="assets/images/icon-bus.svg" class="w-10 h-10 md:w-12 md:h-12 object-contain mb-2 transition-transform group-hover:scale-110">
-                        <span class="text-xs font-bold text-gray-700 group-hover:text-primary transition-colors font-sans">Transjakarta</span>
+                        class="category-btn group bg-white rounded-2xl p-4 shadow-sm border-2 border-transparent hover:border-primary/10 transition-all duration-300 flex flex-col items-center justify-center h-32 md:h-40">
+                        <img src="assets/images/icon-bus.svg" class="w-12 h-12 md:w-16 md:h-16 object-contain mb-3 transition-transform group-hover:scale-110">
+                        <span class="text-sm font-bold text-gray-700 group-hover:text-primary transition-colors font-sans">Transjakarta</span>
                     </button>
                     <button onclick="window.location.href='index.html?mode=mikro'"
-                        class="category-btn group bg-white rounded-xl p-4 shadow-sm border-2 border-transparent hover:border-primary/10 transition-all duration-300 flex flex-col items-center justify-center h-24 md:h-28">
-                        <img src="assets/images/icon-mikrotrans.svg" class="w-10 h-10 md:w-12 md:h-12 object-contain mb-2 transition-transform group-hover:scale-110">
-                        <span class="text-xs font-bold text-gray-700 group-hover:text-primary transition-colors font-sans">Mikrotrans</span>
+                        class="category-btn group bg-white rounded-2xl p-4 shadow-sm border-2 border-transparent hover:border-primary/10 transition-all duration-300 flex flex-col items-center justify-center h-32 md:h-40">
+                        <img src="assets/images/icon-mikrotrans.svg" class="w-12 h-12 md:w-16 md:h-16 object-contain mb-3 transition-transform group-hover:scale-110">
+                        <span class="text-sm font-bold text-gray-700 group-hover:text-primary transition-colors font-sans">Mikrotrans</span>
                     </button>
                     <button onclick="window.location.href='index.html?mode=krl'"
-                        class="category-btn group bg-white rounded-xl p-4 shadow-sm border-2 border-transparent hover:border-primary/10 transition-all duration-300 flex flex-col items-center justify-center h-24 md:h-28">
-                        <img src="assets/images/icon-train.svg" class="w-10 h-10 md:w-12 md:h-12 object-contain mb-2 transition-transform group-hover:scale-110">
-                        <span class="text-xs font-bold text-gray-700 group-hover:text-primary transition-colors font-sans">KRL</span>
+                        class="category-btn group bg-white rounded-2xl p-4 shadow-sm border-2 border-transparent hover:border-primary/10 transition-all duration-300 flex flex-col items-center justify-center h-32 md:h-40">
+                        <img src="assets/images/icon-train.svg" class="w-12 h-12 md:w-16 md:h-16 object-contain mb-3 transition-transform group-hover:scale-110">
+                        <span class="text-sm font-bold text-gray-700 group-hover:text-primary transition-colors font-sans">KRL</span>
                     </button>
                     <button onclick="window.location.href='index.html?mode=lrt'"
-                        class="category-btn group bg-white rounded-xl p-4 shadow-sm border-2 border-transparent hover:border-primary/10 transition-all duration-300 flex flex-col items-center justify-center h-24 md:h-28">
-                        <img src="assets/images/icon-lrt.svg" class="w-10 h-10 md:w-12 md:h-12 object-contain mb-2 transition-transform group-hover:scale-110">
-                        <span class="text-xs font-bold text-gray-700 group-hover:text-primary transition-colors font-sans">LRT</span>
+                        class="category-btn group bg-white rounded-2xl p-4 shadow-sm border-2 border-transparent hover:border-primary/10 transition-all duration-300 flex flex-col items-center justify-center h-32 md:h-40">
+                        <img src="assets/images/icon-lrt.svg" class="w-12 h-12 md:w-16 md:h-16 object-contain mb-3 transition-transform group-hover:scale-110">
+                        <span class="text-sm font-bold text-gray-700 group-hover:text-primary transition-colors font-sans">LRT</span>
                     </button>
                 </div>
             </div>
