@@ -46,6 +46,26 @@
 
     <section class="relative w-full h-[65vh] min-h-[400px]">
         <div id="map-container" class="absolute inset-0 w-full h-full bg-gray-200 z-0"></div>
+        <div class="absolute bottom-6 left-0 right-0 z-10 pointer-events-none px-4 flex justify-center">
+            <div id="map-legend-navbar" class="bg-white/95 backdrop-blur-md px-5 py-3 rounded-full shadow-lg flex gap-4 items-center overflow-x-auto no-scrollbar pointer-events-auto border border-gray-100">
+                <div class="legend-item flex items-center gap-2 cursor-pointer transition-all duration-200" data-filter="school" onclick="window.filterMap('school')">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#0072bc]"></span>
+                    <span class="text-xs font-bold text-gray-700 whitespace-nowrap font-sans">Sekolah</span>
+                </div>
+                <div class="legend-item flex items-center gap-2 cursor-pointer transition-all duration-200" data-filter="transit" onclick="window.filterMap('transit')">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#FF5733]"></span>
+                    <span class="text-xs font-bold text-gray-700 whitespace-nowrap font-sans">Transit</span>
+                </div>
+                <div class="legend-item flex items-center gap-2 cursor-pointer transition-all duration-200" data-filter="busstop" onclick="window.filterMap('busstop')">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#22c55e]"></span>
+                    <span class="text-xs font-bold text-gray-700 whitespace-nowrap font-sans">Bus Stop Terdekat</span>
+                </div>
+                <div class="legend-item flex items-center gap-2 cursor-pointer transition-all duration-200" data-filter="busstop_area" onclick="window.filterMap('busstop_area')">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#4b5563]"></span>
+                    <span class="text-xs font-bold text-gray-700 whitespace-nowrap font-sans">Bus Stop Sekitar</span>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="max-w-7xl mx-auto px-4 py-8">
