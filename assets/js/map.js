@@ -95,12 +95,12 @@ window.filterMap = function(type) {
 
 function createInteractiveLegend() {
     const oldLegend = document.getElementById('map-legend-navbar');
-    if (oldLegend) return;
+    if (oldLegend) oldLegend.remove();
 
     const navbarContainer = document.createElement('div');
     navbarContainer.id = 'map-legend-navbar';
-    navbarContainer.className = 'bg-white/95 backdrop-blur-md px-5 py-3 rounded-full shadow-lg flex gap-4 items-center overflow-x-auto no-scrollbar pointer-events-auto border border-gray-100';
-    navbarContainer.style.cssText = `position: absolute; top: 20px; left: 50%; transform: translateX(-50%); z-index: 20;`;
+    navbarContainer.className = 'bg-white/95 backdrop-blur-md px-5 py-3 rounded-full shadow-lg flex gap-4 items-center overflow-x-auto no-scrollbar pointer-events-auto border border-gray-100 mx-auto w-max max-w-full';
+    navbarContainer.style.cssText = `position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 20;`;
 
     const legendItems = [
         { id: 'school', label: 'Sekolah', color: COLORS.school },
