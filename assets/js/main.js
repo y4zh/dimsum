@@ -15,28 +15,6 @@ function getColorForRoute(r) {
     return "#6b7280";
 }
 
-function renderCategories() {
-    const container = document.getElementById('category-grid');
-    if (!container) return; 
-
-    const categories = [
-        { id: 'brt', name: 'Transjakarta', icon: 'icon-bus.svg' },
-        { id: 'mikro', name: 'Mikrotrans', icon: 'icon-mikrotrans.svg' },
-        { id: 'krl', name: 'KRL', icon: 'icon-train.svg' },
-        { id: 'lrt', name: 'LRT', icon: 'icon-lrt.svg' }
-    ];
-
-    container.innerHTML = categories.map(cat => `
-        <button onclick="window.filterRoute('${cat.id}')" 
-                class="category-btn group bg-white rounded-2xl p-4 shadow-sm border-2 border-transparent hover:border-primary/10 transition-all duration-300 flex flex-col items-center justify-center h-32 md:h-40" 
-                data-mode="${cat.id}">
-            <img src="assets/images/${cat.icon}" alt="${cat.name}" 
-                 class="w-12 h-12 md:w-16 md:h-16 object-contain mb-3 transition-transform group-hover:scale-110">
-            <span class="text-sm font-bold text-gray-700 group-hover:text-primary transition-colors font-sans">${cat.name}</span>
-        </button>
-    `).join('');
-}
-
 window.filterRoute = function(mode) {
     currentFilter = mode;
     currentSearchQuery = ""; 
@@ -757,6 +735,29 @@ function renderDetail() {
     document.title = `${route.code || ''} - ${route.name || ''} | Transportasi MAN 9 Jakarta`;
 }
 
+function renderCategories() {
+    const container = document.getElementById('category-grid');
+    if (!container) return; 
+
+    const categories = [
+        { id: 'brt', name: 'Transjakarta', icon: 'icon-bus.svg' },
+        { id: 'mikro', name: 'Mikrotrans', icon: 'icon-mikrotrans.svg' },
+        { id: 'krl', name: 'KRL', icon: 'icon-train.svg' },
+        { id: 'lrt', name: 'LRT', icon: 'icon-lrt.svg' }
+    ];
+
+    container.innerHTML = categories.map(cat => `
+        <button onclick="window.filterRoute('${cat.id}')" 
+                class="category-btn group bg-white rounded-xl p-4 md:p-6 shadow-sm border border-gray-100 flex flex-col items-center justify-center space-y-3 md:space-y-4 hover:border-primary hover:shadow-md transition-all duration-300" 
+                data-mode="${cat.id}">
+            <div class="w-12 h-12 md:w-14 md:h-14 bg-[#0a192f] rounded-xl md:rounded-2xl flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform duration-300">
+                <img src="assets/images/${cat.icon}" alt="${cat.name}" class="w-6 h-6 md:w-8 md:h-8" style="filter: brightness(0) invert(1);">
+            </div>
+            <span class="text-sm md:text-[15px] font-bold text-gray-700 font-sans group-hover:text-primary transition-colors">${cat.name}</span>
+        </button>
+    `).join('');
+}
+
 function renderGlobalFooter() {
     const footers = document.querySelectorAll('footer');
     if (!footers || footers.length === 0) return;
@@ -779,33 +780,33 @@ function renderGlobalFooter() {
                     <h3 class="font-bold text-lg mb-4 underline underline-offset-[6px] decoration-2">Media Sosial</h3>
                     <ul class="space-y-3.5">
                         <li><a href="https://instagram.com/transportmanine" target="_blank" class="flex items-center gap-3 text-gray-300 hover:text-white transition-colors text-[14px] sm:text-[15px] font-sans"><svg class="w-[18px] h-[18px] shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.7-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> Instagram</a></li>
-                    </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 pt-5 pb-2 text-center text-[13px] md:text-[14px] text-gray-400 font-sans flex flex-col items-center justify-center gap-1.5">
+                    <p>© 2026 Transportasi MAN 9 Jakarta.</p>
+                    <p>v1.4.16 (Beta)</p>
                 </div>
             </div>
-            <div class="border-t border-gray-700 pt-5 pb-2 text-center text-[13px] md:text-[14px] text-gray-400 font-sans flex flex-col items-center justify-center gap-1.5">
-                <p>© 2026 Transportasi MAN 9 Jakarta.</p>
-                <p>v1.4.13 (Beta)</p>
-            </div>
-        </div>
-    `;
+        `;
 
-    footers.forEach(f => {
-        f.className = "bg-[#1f2937] text-white pt-12 pb-6 mt-auto w-full font-sans";
-        f.innerHTML = footerHTML;
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('category-grid')) renderCategories();
-    if (document.getElementById('map-container') && window.location.pathname.includes('route-detail')) renderDetail();
-    
-    renderGlobalFooter();
-
-    const searchInput = document.getElementById('route-search');
-    if(searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            currentSearchQuery = e.target.value.toLowerCase();
-            updateRouteListUI();
+        footers.forEach(f => {
+            f.className = "bg-[#1f2937] text-white pt-12 pb-6 mt-auto w-full font-sans";
+            f.innerHTML = footerHTML;
         });
     }
-});
+
+    document.addEventListener('DOMContentLoaded', () => {
+        if (document.getElementById('category-grid')) renderCategories();
+        if (document.getElementById('map-container') && window.location.pathname.includes('route-detail')) renderDetail();
+        
+        renderGlobalFooter();
+
+        const searchInput = document.getElementById('route-search');
+        if(searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                currentSearchQuery = e.target.value.toLowerCase();
+                updateRouteListUI();
+            });
+        }
+    });
