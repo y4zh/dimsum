@@ -20,20 +20,19 @@ export function renderCategories() {
     if (!container) return; 
 
     const categories = [
-        { id: 'brt', name: 'Transjakarta', icon: 'icon-bus.svg', bgClass: 'bg-red-100' },
-        { id: 'mikro', name: 'Mikrotrans', icon: 'icon-mikrotrans.svg', bgClass: 'bg-blue-100' },
-        { id: 'krl', name: 'KRL', icon: 'icon-train.svg', bgClass: 'bg-purple-100' },
-        { id: 'lrt', name: 'LRT', icon: 'icon-lrt.svg', bgClass: 'bg-green-100' }
+        { id: 'brt', name: 'Transjakarta', icon: 'icon-bus.svg' },
+        { id: 'mikro', name: 'Mikrotrans', icon: 'icon-mikrotrans.svg' },
+        { id: 'krl', name: 'KRL', icon: 'icon-train.svg' },
+        { id: 'lrt', name: 'LRT', icon: 'icon-lrt.svg' }
     ];
 
     container.innerHTML = categories.map(cat => `
         <button onclick="window.filterRoute('${cat.id}')" 
-                class="category-btn group bg-white rounded-xl p-3 shadow-sm border border-gray-100 hover:border-primary hover:shadow-md transition-all flex flex-col items-center space-y-2" 
+                class="category-btn group bg-white rounded-2xl p-4 shadow-sm border-2 border-transparent hover:border-primary/10 transition-all duration-300 flex flex-col items-center justify-center h-32 md:h-40" 
                 data-mode="${cat.id}">
-            <div class="w-10 h-10 ${cat.bgClass} rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                <img src="assets/images/${cat.icon}" alt="${cat.name}" class="w-6 h-6 object-contain">
-            </div>
-            <span class="text-xs font-bold text-gray-700 font-sans">${cat.name}</span>
+            <img src="assets/images/${cat.icon}" alt="${cat.name}" 
+                 class="w-12 h-12 md:w-16 md:h-16 object-contain mb-3 transition-transform group-hover:scale-110">
+            <span class="text-sm font-bold text-gray-700 group-hover:text-primary transition-colors font-sans">${cat.name}</span>
         </button>
     `).join('');
 }
@@ -785,7 +784,7 @@ export function renderGlobalFooter() {
             </div>
             <div class="border-t border-gray-700 pt-5 pb-2 text-center text-[13px] md:text-[14px] text-gray-400 font-sans flex flex-col items-center justify-center gap-1.5">
                 <p>© 2026 Transportasi MAN 9 Jakarta.</p>
-                <p>v1.4.18 (Beta)</p>
+                <p>v1.4.20 (Beta)</p>
             </div>
         </div>
     `;
