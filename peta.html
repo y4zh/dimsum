@@ -44,17 +44,17 @@
                         class="text-white hover:text-blue-200 transition-colors font-medium text-sm">Beranda</a>
                     <a href="peta.html"
                         class="bg-white/20 text-white px-4 py-1.5 rounded-full transition-colors font-medium text-sm backdrop-blur-sm border border-white/10">Peta</a>
-                    <a href="index.html#rute-section"
+                    <a href="index.html#route-list-section"
                         class="text-white hover:text-blue-200 transition-colors font-medium text-sm">Rute</a>
                 </div>
             </div>
         </div>
     </nav>
     <main class="flex-1 relative w-full h-full">
-        <div id="map-container" class="absolute inset-0 w-full h-full bg-gray-100"></div>
-        <div class="absolute bottom-8 left-4 right-4 z-20 pointer-events-none">
-            <div
-                class="max-w-4xl mx-auto bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl p-6 border border-white/50 pointer-events-auto">
+        <div id="map-container" class="absolute inset-0 w-full h-full bg-gray-100 z-0"></div>
+        <div class="absolute bottom-8 left-4 right-4 z-20 pointer-events-none flex flex-col gap-4">
+            
+            <div class="max-w-4xl mx-auto bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl p-6 border border-white/50 pointer-events-auto w-full">
                 <div class="flex items-center justify-between mb-4">
                     <h2 class="text-xs font-bold text-gray-500 uppercase tracking-widest">Pilih Jenis Transportasi</h2>
                     <a href="index.html#route-list-section"
@@ -68,36 +68,24 @@
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
                     <button onclick="window.location.href='index.html?mode=brt'"
-                        class="bg-white rounded-xl p-3 shadow-sm border border-gray-100 hover:border-primary hover:shadow-md transition-all flex flex-col items-center space-y-2 group">
-                        <div
-                            class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <img src="assets/images/icon-bus.svg" class="w-6 h-6 object-contain">
-                        </div>
-                        <span class="text-xs font-bold text-gray-700">Transjakarta</span>
+                        class="category-btn group bg-white rounded-xl p-4 shadow-sm border-2 border-transparent hover:border-primary/10 transition-all duration-300 flex flex-col items-center justify-center h-24 md:h-28">
+                        <img src="assets/images/icon-bus.svg" class="w-10 h-10 md:w-12 md:h-12 object-contain mb-2 transition-transform group-hover:scale-110">
+                        <span class="text-xs font-bold text-gray-700 group-hover:text-primary transition-colors font-sans">Transjakarta</span>
                     </button>
                     <button onclick="window.location.href='index.html?mode=mikro'"
-                        class="bg-white rounded-xl p-3 shadow-sm border border-gray-100 hover:border-primary hover:shadow-md transition-all flex flex-col items-center space-y-2 group">
-                        <div
-                            class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <img src="assets/images/icon-mikrotrans.svg" class="w-6 h-6 object-contain">
-                        </div>
-                        <span class="text-xs font-bold text-gray-700">Mikrotrans</span>
+                        class="category-btn group bg-white rounded-xl p-4 shadow-sm border-2 border-transparent hover:border-primary/10 transition-all duration-300 flex flex-col items-center justify-center h-24 md:h-28">
+                        <img src="assets/images/icon-mikrotrans.svg" class="w-10 h-10 md:w-12 md:h-12 object-contain mb-2 transition-transform group-hover:scale-110">
+                        <span class="text-xs font-bold text-gray-700 group-hover:text-primary transition-colors font-sans">Mikrotrans</span>
                     </button>
                     <button onclick="window.location.href='index.html?mode=krl'"
-                        class="bg-white rounded-xl p-3 shadow-sm border border-gray-100 hover:border-primary hover:shadow-md transition-all flex flex-col items-center space-y-2 group">
-                        <div
-                            class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <img src="assets/images/icon-train.svg" class="w-6 h-6 object-contain">
-                        </div>
-                        <span class="text-xs font-bold text-gray-700">KRL</span>
+                        class="category-btn group bg-white rounded-xl p-4 shadow-sm border-2 border-transparent hover:border-primary/10 transition-all duration-300 flex flex-col items-center justify-center h-24 md:h-28">
+                        <img src="assets/images/icon-train.svg" class="w-10 h-10 md:w-12 md:h-12 object-contain mb-2 transition-transform group-hover:scale-110">
+                        <span class="text-xs font-bold text-gray-700 group-hover:text-primary transition-colors font-sans">KRL</span>
                     </button>
                     <button onclick="window.location.href='index.html?mode=lrt'"
-                        class="bg-white rounded-xl p-3 shadow-sm border border-gray-100 hover:border-primary hover:shadow-md transition-all flex flex-col items-center space-y-2 group">
-                        <div
-                            class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <img src="assets/images/icon-lrt.svg" class="w-6 h-6 object-contain">
-                        </div>
-                        <span class="text-xs font-bold text-gray-700">LRT</span>
+                        class="category-btn group bg-white rounded-xl p-4 shadow-sm border-2 border-transparent hover:border-primary/10 transition-all duration-300 flex flex-col items-center justify-center h-24 md:h-28">
+                        <img src="assets/images/icon-lrt.svg" class="w-10 h-10 md:w-12 md:h-12 object-contain mb-2 transition-transform group-hover:scale-110">
+                        <span class="text-xs font-bold text-gray-700 group-hover:text-primary transition-colors font-sans">LRT</span>
                     </button>
                 </div>
             </div>
