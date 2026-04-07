@@ -1,3 +1,5 @@
+import { appData, routeColors } from './data/init.js';
+
 if (!window.mapboxgl) {
     console.error('Mapbox GL JS not loaded');
 } else {
@@ -5,7 +7,7 @@ if (!window.mapboxgl) {
 }
 
 let allMarkers = [];
-let activeFilter = 'all';
+window.activeFilter = 'all';
 
 const map = new mapboxgl.Map({
     container: 'map-container',
@@ -23,8 +25,8 @@ const COLORS = {
 };
 
 function getRouteColor(routeCode) {
-    if (window.routeColors && window.routeColors[routeCode]) return window.routeColors[routeCode];
-    if (routeCode && routeCode.toUpperCase().startsWith('JAK')) return window.routeColors['JAK'];
+    if (routeColors && routeColors[routeCode]) return routeColors[routeCode];
+    if (routeCode && routeCode.toUpperCase().startsWith('JAK')) return routeColors['JAK'];
     return '#6b7280';
 }
 
@@ -65,13 +67,40 @@ const ICONS = {
 
 const WALK_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7z"/></svg>`;
 
+window.filterMap = function(type) {
+    if (typeof window.activeFilter !== 'undefined') {
+        window.activeFilter = (window.activeFilter === type) ? 'all' : type;
+        
+        allMarkers.forEach(data => {
+            let isVisible = false;
+            if (window.activeFilter === 'all') isVisible = true;
+            else if (window.activeFilter === 'transit') isVisible = ['train', 'brt', 'lrt'].includes(data.type);
+            else isVisible = data.type === window.activeFilter;
+
+            isVisible ? data.marker.addTo(map) : data.marker.remove();
+        });
+
+        document.querySelectorAll('.legend-item').forEach(item => {
+            if (window.activeFilter === 'all') {
+                item.style.opacity = '1';
+                item.style.backgroundColor = 'transparent';
+            } else {
+                const isActive = item.dataset.filter === window.activeFilter;
+                item.style.opacity = isActive ? '1' : '0.4';
+                item.style.backgroundColor = isActive ? '#f3f4f6' : 'transparent';
+            }
+        });
+    }
+};
+
 function createInteractiveLegend() {
-    const oldLegend = document.querySelector('.map-legend-navbar');
-    if (oldLegend) oldLegend.remove();
+    const oldLegend = document.getElementById('map-legend-navbar');
+    if (oldLegend) return;
 
     const navbarContainer = document.createElement('div');
-    navbarContainer.className = 'map-legend-navbar';
-    navbarContainer.style.cssText = `position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 20; background: white; padding: 8px 12px; border-radius: 99px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: flex; gap: 12px; align-items: center; width: max-content; max-width: 90%; overflow-x: auto; white-space: nowrap; scrollbar-width: none;`;
+    navbarContainer.id = 'map-legend-navbar';
+    navbarContainer.className = 'bg-white/95 backdrop-blur-md px-5 py-3 rounded-full shadow-lg flex gap-4 items-center overflow-x-auto no-scrollbar pointer-events-auto border border-gray-100';
+    navbarContainer.style.cssText = `position: absolute; top: 20px; left: 50%; transform: translateX(-50%); z-index: 20;`;
 
     const legendItems = [
         { id: 'school', label: 'Sekolah', color: COLORS.school },
@@ -82,60 +111,32 @@ function createInteractiveLegend() {
 
     legendItems.forEach(item => {
         const itemDiv = document.createElement('div');
-        itemDiv.className = 'legend-item';
+        itemDiv.className = 'legend-item flex items-center gap-2 cursor-pointer transition-all duration-200';
         itemDiv.dataset.filter = item.id;
-        itemDiv.style.cssText = `display: flex; align-items: center; gap: 6px; cursor: pointer; transition: all 0.2s; padding: 4px 8px; border-radius: 20px;`;
 
         const dot = document.createElement('span');
-        dot.style.cssText = `width: 8px; height: 8px; border-radius: 50%; background-color: ${item.color};`;
+        dot.className = 'w-2.5 h-2.5 rounded-full';
+        dot.style.backgroundColor = item.color;
 
         const label = document.createElement('span');
         label.textContent = item.label;
-        label.style.cssText = `font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; color: #374151; font-weight: 600;`;
+        label.className = 'text-xs font-bold text-gray-700 whitespace-nowrap font-sans';
 
         itemDiv.appendChild(dot);
         itemDiv.appendChild(label);
 
-        itemDiv.onclick = () => {
-            activeFilter = (activeFilter === item.id) ? 'all' : item.id;
-            updateMapDisplay();
-            updateLegendUI();
-        };
+        itemDiv.onclick = () => window.filterMap(item.id);
         navbarContainer.appendChild(itemDiv);
     });
 
-    document.getElementById('map-container')?.appendChild(navbarContainer);
-}
-
-function updateLegendUI() {
-    document.querySelectorAll('.legend-item').forEach(item => {
-        if (activeFilter === 'all') {
-            item.style.opacity = '1';
-            item.style.backgroundColor = 'transparent';
-        } else {
-            const isActive = item.dataset.filter === activeFilter;
-            item.style.opacity = isActive ? '1' : '0.4';
-            item.style.backgroundColor = isActive ? '#f3f4f6' : 'transparent';
-        }
-    });
-}
-
-function updateMapDisplay() {
-    allMarkers.forEach(data => {
-        let isVisible = false;
-        if (activeFilter === 'all') isVisible = true;
-        else if (activeFilter === 'transit') isVisible = ['train', 'brt', 'lrt'].includes(data.type);
-        else isVisible = data.type === activeFilter;
-
-        isVisible ? data.marker.addTo(map) : data.marker.remove();
-    });
+    document.getElementById('map-container')?.parentElement.appendChild(navbarContainer);
 }
 
 function initializeMarkers() {
-    if (!window.appData || !window.appData.locations) return;
+    if (!appData || !appData.locations) return;
     allMarkers = [];
 
-    window.appData.locations.forEach(location => {
+    appData.locations.forEach(location => {
         const markerColor = COLORS[location.type] || '#4b5563';
         const isAreaStop = location.type === 'busstop_area';
         const markerSize = isAreaStop ? 24 : 32;
