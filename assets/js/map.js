@@ -83,54 +83,13 @@ window.filterMap = function(type) {
         document.querySelectorAll('.legend-item').forEach(item => {
             if (window.activeFilter === 'all') {
                 item.style.opacity = '1';
-                item.style.backgroundColor = 'transparent';
             } else {
                 const isActive = item.dataset.filter === window.activeFilter;
                 item.style.opacity = isActive ? '1' : '0.4';
-                item.style.backgroundColor = isActive ? '#f3f4f6' : 'transparent';
             }
         });
     }
 };
-
-function createInteractiveLegend() {
-    const oldLegend = document.getElementById('map-legend-navbar');
-    if (oldLegend) oldLegend.remove();
-
-    const navbarContainer = document.createElement('div');
-    navbarContainer.id = 'map-legend-navbar';
-    navbarContainer.className = 'bg-white/95 backdrop-blur-md px-5 py-3 rounded-full shadow-lg flex gap-4 items-center overflow-x-auto no-scrollbar pointer-events-auto border border-gray-100 mx-auto w-max max-w-full';
-    navbarContainer.style.cssText = `position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 20;`;
-
-    const legendItems = [
-        { id: 'school', label: 'Sekolah', color: COLORS.school },
-        { id: 'transit', label: 'Transit', color: COLORS.train },
-        { id: 'busstop', label: 'Bus Stop Terdekat', color: COLORS.busstop },
-        { id: 'busstop_area', label: 'Bus Stop Sekitar', color: COLORS.busstop_area }
-    ];
-
-    legendItems.forEach(item => {
-        const itemDiv = document.createElement('div');
-        itemDiv.className = 'legend-item flex items-center gap-2 cursor-pointer transition-all duration-200';
-        itemDiv.dataset.filter = item.id;
-
-        const dot = document.createElement('span');
-        dot.className = 'w-2.5 h-2.5 rounded-full';
-        dot.style.backgroundColor = item.color;
-
-        const label = document.createElement('span');
-        label.textContent = item.label;
-        label.className = 'text-xs font-bold text-gray-700 whitespace-nowrap font-sans';
-
-        itemDiv.appendChild(dot);
-        itemDiv.appendChild(label);
-
-        itemDiv.onclick = () => window.filterMap(item.id);
-        navbarContainer.appendChild(itemDiv);
-    });
-
-    document.getElementById('map-container')?.parentElement.appendChild(navbarContainer);
-}
 
 function initializeMarkers() {
     if (!appData || !appData.locations) return;
@@ -191,8 +150,6 @@ function initializeMarkers() {
             marker: marker
         });
     });
-
-    createInteractiveLegend();
 }
 
 if (map.loaded()) {
