@@ -28,11 +28,11 @@ export function renderCategories() {
 
     container.innerHTML = categories.map(cat => `
         <button onclick="window.filterRoute('${cat.id}')" 
-                class="category-btn group bg-white rounded-2xl p-4 shadow-sm border-2 border-transparent hover:border-primary/10 transition-all duration-300 flex flex-col items-center justify-center h-28 md:h-32" 
+                class="category-btn group bg-white rounded-[1.5rem] p-5 shadow-sm border border-gray-100 hover:border-primary hover:shadow-md transition-all duration-300 flex flex-col items-center justify-center h-36 md:h-44" 
                 data-mode="${cat.id}">
             <img src="assets/images/${cat.icon}" alt="${cat.name}" 
-                 class="w-12 h-12 md:w-16 md:h-16 object-contain mb-3 transition-transform group-hover:scale-110">
-            <span class="text-sm font-bold text-gray-700 group-hover:text-primary transition-colors font-sans">${cat.name}</span>
+                 class="w-16 h-16 md:w-20 md:h-20 object-contain mb-4 transition-transform group-hover:scale-110">
+            <span class="text-[13px] md:text-[15px] font-bold text-gray-800 group-hover:text-primary transition-colors font-sans">${cat.name}</span>
         </button>
     `).join('');
 }
@@ -772,13 +772,19 @@ export function renderGlobalFooter() {
                     <h3 class="font-bold text-lg mb-4 underline underline-offset-[6px] decoration-2">Kontak</h3>
                     <ul class="space-y-3.5">
                         <li><a href="mailto:manine@tfmanine.web.id" class="flex items-center gap-3 text-gray-300 hover:text-white transition-colors text-[14px] sm:text-[15px] font-sans"><svg class="w-[18px] h-[18px] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> Email</a></li>
+                        <li><a href="https://instagram.com/transportmanine" target="_blank" class="flex items-center gap-3 text-gray-300 hover:text-white transition-colors text-[14px] sm:text-[15px] font-sans"><svg class="w-[18px] h-[18px] shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg> Direct Message</a></li>
+                    </ul>
+                </div>
+                <div class="flex-1">
+                    <h3 class="font-bold text-lg mb-4 underline underline-offset-[6px] decoration-2">Media Sosial</h3>
+                    <ul class="space-y-3.5">
                         <li><a href="https://instagram.com/transportmanine" target="_blank" class="flex items-center gap-3 text-gray-300 hover:text-white transition-colors text-[14px] sm:text-[15px] font-sans"><svg class="w-[18px] h-[18px] shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.7-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> Instagram</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-gray-700 pt-5 pb-2 text-center text-[13px] md:text-[14px] text-gray-400 font-sans flex flex-col items-center justify-center gap-1.5">
                 <p>© 2026 Transportasi MAN 9 Jakarta.</p>
-                <p>v1.4.23 (Beta)</p>
+                <p>v1.4.24 (Beta)</p>
             </div>
         </div>
     `;
